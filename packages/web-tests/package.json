@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint *.ts*",
-    "dev:test": "playwright test"
+    "dev:test": "playwright test",
+    "e2e:test": "start-server-and-test \"(cd ../../apps/web && pnpm start)\" http://localhost:3000 \"playwright test\""
   },
   "dependencies": {
     "start-server-and-test": "^1.14.0",
