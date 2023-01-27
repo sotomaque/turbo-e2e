@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "lint": "eslint *.ts*",
+    "lint": "eslint ./tests/*.test.ts",
     "dev:test": "playwright test",
     "e2e:test": "start-server-and-test \"(cd ../../apps/web && npm run start)\" http://localhost:3000 \"playwright test\""
   },
@@ -12,6 +12,9 @@
     "web": "workspace:*"
   },
   "devDependencies": {
-    "@playwright/test": "^1.30.0"
+    "@playwright/test": "^1.30.0",
+    "eslint-config-custom": "workspace:*",
+    "eslint": "^7.32.0",
+    "tsconfig": "workspace:*"
   }
 }

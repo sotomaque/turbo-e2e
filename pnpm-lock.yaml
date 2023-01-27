@@ -113,13 +113,19 @@ importers:
   packages/web-tests:
     specifiers:
       '@playwright/test': ^1.30.0
+      eslint: ^7.32.0
+      eslint-config-custom: workspace:*
       start-server-and-test: ^1.14.0
+      tsconfig: workspace:*
       web: workspace:*
     dependencies:
       start-server-and-test: 1.15.3
       web: link:../../apps/web
     devDependencies:
       '@playwright/test': 1.30.0
+      eslint: 7.32.0
+      eslint-config-custom: link:../eslint-config-custom
+      tsconfig: link:../tsconfig
 
 packages:
 
