@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint ./cypress/**/*.cy.ts",
     "test": "cypress open",
-    "api:test": "start-server-and-test \"(cd ../../apps/web && npm run start)\" http://localhost:3000 \"cypress run --browser chrome\""
+    "api:test": "cypress run --browser chrome"
   },
   "dependencies": {
     "cypress": "^12.4.0",
