@@ -24,5 +24,8 @@
     "api:test": {
       "dependsOn": ["^build"]
     }
+  },
+  "remoteCache": {
+    "signature": true
   }
 }
