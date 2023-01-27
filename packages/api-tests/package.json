@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "cypress": "^12.4.0",
-    "start-server-and-test": "^1.14.0",
     "web": "workspace:*"
   },
   "devDependencies": {
