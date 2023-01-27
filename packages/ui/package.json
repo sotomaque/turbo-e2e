@@ -13,8 +13,19 @@
     "@types/react-dom": "^18.0.6",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
+    "postcss": "^8.4.21",
     "react": "^18.2.0",
+    "tailwindcss": "^3.2.0",
     "tsconfig": "workspace:*",
+    "config": "workspace:*",
     "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.7",
+    "@headlessui/tailwindcss": "^0.1.2",
+    "@heroicons/react": "^1.0.6",
+    "classnames": "^2.3.1",
+    "heroicons": "^1.0.5",
+    "react-dom": "^18.2.0"
   }
 }
