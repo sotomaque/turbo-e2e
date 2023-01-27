@@ -16,6 +16,9 @@
     },
     "dev": {
       "cache": false
+    },
+    "api:test": {
+      "dependsOn": ["^build"]
     }
   }
 }
