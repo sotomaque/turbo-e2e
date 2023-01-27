@@ -15,6 +15,7 @@ importers:
   apps/docs:
     specifiers:
       '@babel/core': ^7.0.0
+      '@reach/skip-nav': ^0.18.0
       '@types/node': ^17.0.12
       '@types/react': ^18.0.22
       '@types/react-dom': ^18.0.7
@@ -29,6 +30,7 @@ importers:
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
+      '@reach/skip-nav': 0.18.0_biqbaboplfbrettd7655fr4n2y
       next: 13.1.5_pjwopsidmaokadturxaafygjp4
       nextra: 2.0.1_s6zlkfvllybxhmcq5pkr2zsuza
       nextra-theme-docs: 2.0.1_s6zlkfvllybxhmcq5pkr2zsuza
@@ -81,12 +83,10 @@ importers:
       cypress: ^12.4.0
       eslint: ^7.32.0
       eslint-config-custom: workspace:*
-      start-server-and-test: ^1.14.0
       tsconfig: workspace:*
       web: workspace:*
     dependencies:
       cypress: 12.4.0
-      start-server-and-test: 1.15.3
       web: link:../../apps/web
     devDependencies:
       '@babel/core': 7.20.12
@@ -780,6 +780,14 @@ packages:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
 
+  /@reach/polymorphic/0.18.0_react@18.2.0:
+    resolution: {integrity: sha512-N9iAjdMbE//6rryZZxAPLRorzDcGBnluf7YQij6XDLiMtfCj1noa7KyLpEc/5XCIB/EwhX3zCluFAwloBKdblA==}
+    peerDependencies:
+      react: ^16.8.0 || 17.x
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /@reach/skip-nav/0.17.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-wkkpQK3ffczzGHis6TaUvpOabuAL9n9Kh5vr4h56XPIJP3X77VcHUDk7MK3HbV1mTgamGxc9Hbd1sXKSWLu3yA==}
     peerDependencies:
@@ -790,6 +798,17 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tslib: 2.4.1
+    dev: false
+
+  /@reach/skip-nav/0.18.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-7XKHX0NNTz9VJw1d+ZRuu3KhKSOZTIHSbHUuv7qKKPwSNApDa+dVGqR/I7dKwyB/CDFMXO4iEz4XLtOmvi0FEg==}
+    peerDependencies:
+      react: ^16.8.0 || 17.x
+      react-dom: ^16.8.0 || 17.x
+    dependencies:
+      '@reach/polymorphic': 0.18.0_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@reach/utils/0.17.0_biqbaboplfbrettd7655fr4n2y:
