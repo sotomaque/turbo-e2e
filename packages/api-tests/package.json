@@ -1,0 +1,21 @@
+{
+  "name": "api-tests",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ./cypress/**/*.cy.ts",
+    "test": "cypress open",
+    "api:test": "cypress run --browser chrome"
+  },
+  "dependencies": {
+    "cypress": "^12.4.0",
+    "web": "workspace:*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@playwright/test": "^1.30.0",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*"
+  }
+}
