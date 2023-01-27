@@ -56,5 +56,5 @@ describe('Login Flow', () => {
 
 const LoginRequest = {
   method: 'POST',
-  url: 'https://app.staging.earnbetter.com/api/v1/jwt/',
+  url: 'https://backend.staging.eb-app.earnbetter.com/api/v1/jwt/',
 };
