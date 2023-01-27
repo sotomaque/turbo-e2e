@@ -3,12 +3,16 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "outputs": ["dist/**", ".next/**", "storybook-static/**"]
     },
     "dev:test": {
       "cache": false
     },
     "e2e:test": {
+      "dependsOn": ["^build"]
+    },
+    "storybook": {
+      "outputs": ["storybook-static/**"],
       "dependsOn": ["^build"]
     },
     "lint": {
