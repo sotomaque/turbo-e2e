@@ -25,7 +25,7 @@ test('Redirects to /documents on valid login', async ({ page, request }) => {
     access:
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODk0ODEzLCJpYXQiOjE2NzQzNTg4MTMsImp0aSI6IjUwZjZhMWQ2Yzk2NTQxYzY5ZGE0NzhhNmJiYWI4OTE2IiwidXNlcl9pZCI6NX0.vDre4pK8fWGvt5jkXDWmGxy2lgbaYxTUCKn2kYoO8L4',
   };
-  await request.post('http://localhost:8000/api/v1/jwt/', {
+  await request.post(`${process.env.NEXT_PUBLIC_API_URL}/jwt/`, {
     data: json,
   });
 
