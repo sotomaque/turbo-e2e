@@ -1,0 +1,5 @@
+{
+  "extends": "tsconfig/react-library.json",
+  "include": ["src/**/*.tsx", "src/**/css", ".storybook/*.js"],
+  "exclude": ["node_modules"]
+}
