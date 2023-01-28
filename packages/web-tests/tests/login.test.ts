@@ -1,4 +1,4 @@
-import { test, expect, chromium } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { dotenvLoad } from 'dotenv-mono';
 
 dotenvLoad(); // Dotenv instance
