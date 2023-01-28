@@ -1,18 +1,17 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Button } from 'ui';
+import { Spinner } from 'ui';
 
 export default {
-  title: 'Button',
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  title: 'Spinner',
+  component: Spinner,
+} as ComponentMeta<typeof Spinner>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Spinner> = (args) => (
+  <Spinner {...args} />
+);
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  variant: 'primary',
-  children: 'Button',
-};
+Primary.args = {};
