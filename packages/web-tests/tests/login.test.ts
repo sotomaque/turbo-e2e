@@ -54,7 +54,7 @@ test('Redirects to /documents on valid login', async () => {
 
 test('Shows error message on invalid login attemp', async () => {
   // TODO: do i actually need this setup?
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true, timeout: 60000 });
   const context = await browser.newContext({});
   await context.route('**/*', (route) => route.continue());
   const _page = await context.newPage();
