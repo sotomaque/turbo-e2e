@@ -5,6 +5,7 @@
   "scripts": {
     "lint": "eslint ./tests/*.test.ts",
     "dev:test": "playwright test",
+    "dev:test:codegen": "npx playwright codegen",
     "e2e:test": "start-server-and-test \"(cd ../../apps/web && npm run start)\" http://localhost:3000 \"playwright test\""
   },
   "dependencies": {

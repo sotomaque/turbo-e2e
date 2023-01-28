@@ -1,4 +1,7 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, chromium } from '@playwright/test';
+import { dotenvLoad } from 'dotenv-mono';
+
+dotenvLoad(); // Dotenv instance
 
 test('Renders Correctly', async ({ page }) => {
   // GIVEN the user is on the login page
@@ -14,31 +17,70 @@ test('Renders Correctly', async ({ page }) => {
   await expect(background).toBeVisible();
 });
 
-test('Redirects to /documents on valid login', async ({ page, request }) => {
-  // GIVEN the user is on the login page
-  await page.goto('http://localhost:3000/login');
+test('Redirects to /documents on valid login', async () => {
+  const browser = await chromium.launch({ headless: true });
+  const context = await browser.newContext({});
+  await context.route('**/*', (route) => route.continue());
+  const _page = await context.newPage();
 
-  // AND the login requeset is mocked to return a valid token
+  // SETUP /jwt/ requests are mocked to return a valid token
   const json = {
-    refresh:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcwNTg5NDgxMywiaWF0IjoxNjc0MzU4ODEzLCJqdGkiOiJlZjY2OWFiODkwNDk0N2YxYjRmNTUxY2E3YzA4YmZiNyIsInVzZXJfaWQiOjV9.aLdmBHBFqO-anq1RBb1PJGS4IW7qXG9N9Uf3o36KTlw',
-    access:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA1ODk0ODEzLCJpYXQiOjE2NzQzNTg4MTMsImp0aSI6IjUwZjZhMWQ2Yzk2NTQxYzY5ZGE0NzhhNmJiYWI4OTE2IiwidXNlcl9pZCI6NX0.vDre4pK8fWGvt5jkXDWmGxy2lgbaYxTUCKn2kYoO8L4',
+    refresh: 'mockRefreshToken',
+    access: 'mockAccessToken',
   };
-  await request.post(`${process.env.NEXT_PUBLIC_API_URL}/jwt/`, {
-    data: json,
-  });
+  await _page.route(`**/api/v1/jwt/`, (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(json),
+    })
+  );
+
+  // GIVEN the user is on the login _page
+  await _page.goto('http://localhost:3000/login');
 
   // WHEN the user fills the form and submits
-  await page.goto('http://localhost:3000/login');
-  await page.locator('[data-test-id="email-input"]').click();
-  await page
+  await _page.locator('[data-test-id="email-input"]').click();
+  await _page
     .locator('[data-test-id="email-input"]')
-    .fill('enrique@earnbetter.com'); // TODO: emails from secret
-  await page.locator('[data-test-id="email-input"]').press('Tab');
-  await page.locator('[data-test-id="password-input"]').fill('por!Qkikei7'); // TODO: passwords from secret
-  await page.locator('[data-test-id="submit-button"]').click();
+    .fill('test@earnbetter.com');
+  await _page.locator('[data-test-id="email-input"]').press('Tab');
+  await _page.locator('[data-test-id="password-input"]').fill('test');
+  await _page.locator('[data-test-id="submit-button"]').click();
 
   // THEN the user is redirected to /documents
-  await expect(page).toHaveURL('http://localhost:3000/documents');
+  await expect(_page).toHaveURL('http://localhost:3000/documents');
+});
+
+test.only('Shows error message on invalid login attemp', async () => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext({});
+  await context.route('**/*', (route) => route.continue());
+  const _page = await context.newPage();
+
+  // GIVEN the user is on the login _page
+  await _page.goto('http://localhost:3000/login');
+
+  // WHEN the user fills the form and submits
+  await _page.locator('[data-test-id="email-input"]').click();
+  await _page
+    .locator('[data-test-id="email-input"]')
+    .fill('test@earnbetter.com');
+  await _page.locator('[data-test-id="email-input"]').press('Tab');
+  await _page.locator('[data-test-id="password-input"]').fill('test');
+  const responsePromise = _page.waitForResponse(
+    (resp) => resp.url().includes('/jwt/') && resp.status() === 401
+  );
+
+  await _page.locator('[data-test-id="submit-button"]').click();
+
+  // THEN we should see a 401
+  // with the error message "Whoops! Those credentials don`t look right."
+  await responsePromise;
+  await expect(_page).toHaveURL('http://localhost:3000/login');
+  const errorMessage = _page.getByTestId('error-message');
+  await expect(errorMessage).toBeVisible();
+  await expect(errorMessage).toHaveText(
+    'Whoops! Those credentials don`t look right.'
+  );
 });
