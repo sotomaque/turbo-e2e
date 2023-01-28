@@ -18,7 +18,6 @@ export const loginMutation = async ({
     }),
   };
   const response: LoginMutationResponse = await api(config);
-
   const { data } = response;
   // Validate Response
   if (response.status !== 200 || !data) {

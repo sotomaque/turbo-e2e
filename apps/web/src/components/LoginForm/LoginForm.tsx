@@ -99,7 +99,7 @@ const LoginForm = () => {
         </Button>
 
         {showError ? (
-          <p className="mt-2 text-sm text-red-600" id="email-error">
+          <p className="mt-2 text-sm text-red-600" data-testid="error-message">
             Whoops! Those credentials don`t look right.
           </p>
         ) : null}

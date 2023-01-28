@@ -272,6 +272,7 @@ importers:
   packages/web-tests:
     specifiers:
       '@playwright/test': ^1.30.0
+      '@types/node': ^18.11.18
       eslint: ^7.32.0
       eslint-config-custom: workspace:*
       start-server-and-test: ^1.14.0
@@ -282,6 +283,7 @@ importers:
       web: link:../../apps/web
     devDependencies:
       '@playwright/test': 1.30.0
+      '@types/node': 18.11.18
       eslint: 7.32.0
       eslint-config-custom: link:../eslint-config-custom
       tsconfig: link:../tsconfig
@@ -2411,7 +2413,7 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 18.11.18
       playwright-core: 1.30.0
     dev: true
 
