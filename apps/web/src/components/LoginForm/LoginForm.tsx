@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { useMutation } from '@tanstack/react-query';
 
 import useLocalStorage from '@hooks/useLocalStorage';
@@ -13,6 +14,7 @@ const LoginForm = () => {
   // useReducer - https://reactjs.org/docs/hooks-reference.html#usereducer
 
   // Hook(s)
+  const router = useRouter();
   const { setValue: setAccessToken } = useLocalStorage('access_token', '');
   const { isLoading, mutateAsync, isError } = useMutation({
     mutationKey: ['login'],
@@ -28,7 +30,7 @@ const LoginForm = () => {
       setAPIAuthToken(access);
       // Save token to local storage for persistence
       setAccessToken(access);
-      // router.push('/documents');
+      router.push('/documents');
     },
     onError() {
       setShowError(true);

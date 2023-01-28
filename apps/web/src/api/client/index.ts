@@ -1,11 +1,10 @@
 import axios, { type AxiosRequestHeaders } from 'axios';
-import { env } from '@env/server.mjs';
 
 const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  baseURL: env.NEXT_PUBLIC_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
 
 api.interceptors.request.use(

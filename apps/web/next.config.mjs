@@ -1,4 +1,9 @@
+// Using import
+import { dotenvLoad } from 'dotenv-mono';
+dotenvLoad(); // Dotenv instance
+
 /** @type {import("next").NextConfig} */
+
 const config = {
   transpilePackages: ['ui'],
   reactStrictMode: false,

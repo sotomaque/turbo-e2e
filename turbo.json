@@ -6,7 +6,8 @@
       "outputs": ["dist/**", ".next/**", "storybook-static/**"]
     },
     "dev:test": {
-      "cache": false
+      "cache": false,
+      "env": ["NEXT_PUBLIC_API_URL"]
     },
     "e2e:test": {
       "dependsOn": ["^build"]
@@ -27,5 +28,6 @@
   },
   "remoteCache": {
     "signature": true
-  }
+  },
+  "globalDependencies": [".env"]
 }

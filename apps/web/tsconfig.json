@@ -9,9 +9,9 @@
       "@api/*": ["src/api/*"],
       "@components": ["src/components/index.ts"],
       "@components/*": ["src/components/*"],
-      "@env/*": ["src/env/*"],
       "@hooks": ["src/hooks/index.ts"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@types": ["src/types/index.ts"]
     }
   }
 }

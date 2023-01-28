@@ -1,4 +1,5 @@
-import api from '../client';
+import api from '@api/client';
+import { type LoginMutationResponse } from '@types';
 
 export const loginMutation = async ({
   username,
@@ -7,6 +8,7 @@ export const loginMutation = async ({
   username: string;
   password: string;
 }) => {
+  // Create Config from shared service
   const config = {
     method: 'post',
     url: '/jwt/',
@@ -16,6 +18,7 @@ export const loginMutation = async ({
     }),
   };
   const response: LoginMutationResponse = await api(config);
+
   const { data } = response;
   // Validate Response
   if (response.status !== 200 || !data) {
@@ -30,11 +33,3 @@ export const loginMutation = async ({
     refresh: data.refresh,
   };
 };
-
-// TODO: Move to types?
-interface LoginMutationResponse extends Response {
-  data?: {
-    access: string;
-    refresh: string;
-  };
-}
