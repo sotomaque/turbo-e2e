@@ -52,8 +52,9 @@ test('Redirects to /documents on valid login', async () => {
   await expect(_page).toHaveURL('http://localhost:3000/documents');
 });
 
-test.only('Shows error message on invalid login attemp', async () => {
-  const browser = await chromium.launch({ headless: false });
+test('Shows error message on invalid login attemp', async () => {
+  // TODO: do i actually need this setup?
+  const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({});
   await context.route('**/*', (route) => route.continue());
   const _page = await context.newPage();
