@@ -12,8 +12,8 @@ const spinnerStyles = cva(['inline', 'animate-spin'], {
       primary: ['fill-ebgreen-600 text-gray-200'],
     },
     size: {
-      small: ['h-8', 'w-8'],
-      medium: ['h-10', 'w-10'],
+      small: ['h-4', 'w-4'],
+      medium: ['h-8', 'w-8'],
       large: ['h-12', 'w-12'],
     },
   },

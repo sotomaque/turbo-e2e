@@ -30,7 +30,7 @@ const LoginForm = () => {
       setAPIAuthToken(access);
       // Save token to local storage for persistence
       setAccessToken(access);
-      router.push('/documents');
+      router.push('/');
     },
     onError() {
       setShowError(true);
@@ -59,6 +59,7 @@ const LoginForm = () => {
             required
             className="block w-full appearance-none rounded-lg border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-ebgreen-700 focus:outline-none focus:ring-ebgreen-700 sm:text-sm"
             onChange={(e) => setUsername(e.target.value)}
+            value={username}
           />
         </div>
       </div>
@@ -80,6 +81,7 @@ const LoginForm = () => {
             required
             className="block w-full appearance-none rounded-lg border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-ebgreen-700 focus:outline-none focus:ring-ebgreen-700 sm:text-sm"
             onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
         </div>
       </div>

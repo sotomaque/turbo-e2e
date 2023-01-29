@@ -21,22 +21,24 @@
     "@types/react-dom": "^17.0.11",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
+    "config": "workspace:*",
     "postcss": "^8.4.6",
     "postcss-loader": "^6.2.1",
     "tailwindcss": "^3.0.23",
-    "config": "workspace:*",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.3",
     "webpack": "^5.69.1"
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
-    "@heroicons/react": "^1.0.5",
+    "@heroicons/react": "v2",
     "classnames": "^2.3.1",
     "heroicons": "^1.0.5",
+    "outline": "link:@heroicons/react/outline",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "require-from-string": "^2.0.2",
+    "storybook-addon-next-router": "^4.0.2",
     "ui": "workspace:*"
   },
   "scripts": {

@@ -9,7 +9,7 @@
       "cache": false,
       "env": ["NEXT_PUBLIC_API_URL"]
     },
-    "e2e:test": {
+    "api:test": {
       "dependsOn": ["^build"]
     },
     "storybook": {
@@ -21,9 +21,6 @@
     },
     "dev": {
       "cache": false
-    },
-    "api:test": {
-      "dependsOn": ["^build"]
     }
   },
   "remoteCache": {
