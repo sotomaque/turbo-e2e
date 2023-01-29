@@ -14,7 +14,6 @@ jobs:
         with:
           cache: 'pnpm'
       - run: pnpm install --prefer-offline --frozen-lockfile
-      - run: pnpx playwright install chromium
       - run: pnpm run ci
         env:
           TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
