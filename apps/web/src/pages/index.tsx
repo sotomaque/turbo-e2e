@@ -6,6 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { useQuery } from '@tanstack/react-query';
 import { meQuery } from '@api';
+import { DocumentList } from '@components';
 
 export const menuItems = [
   {
@@ -40,9 +41,7 @@ const HomePage = () => {
       userData={userData}
       userIsLoading={userIsLoading}
     >
-      <div className="flex h-max w-max border-2 border-red-500">
-        <h1>Content!🎉</h1>
-      </div>
+      <DocumentList />
     </AppLayout>
   );
 };
