@@ -68,9 +68,11 @@ importers:
       axios: ^1.2.5
       config: workspace:*
       csstype: ^3.1.1
+      date-fns: ^2.29.3
       eslint: 8.9.0
       eslint-config-custom: workspace:*
       eslint-plugin-react-hooks: ^4.6.0
+      jwt-decode: ^3.1.2
       lodash: ^4.17.21
       next: ^13.1.1
       outline: link:@heroicons/react/outline
@@ -89,6 +91,8 @@ importers:
       '@tanstack/react-query': 4.23.0_biqbaboplfbrettd7655fr4n2y
       axios: 1.2.5
       csstype: 3.1.1
+      date-fns: 2.29.3
+      jwt-decode: 3.1.2
       lodash: 4.17.21
       next: 13.1.5_biqbaboplfbrettd7655fr4n2y
       outline: link:@heroicons/react/outline
@@ -6358,6 +6362,11 @@ packages:
       assert-plus: 1.0.0
     dev: false
 
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
+    dev: false
+
   /dayjs/1.11.7:
     resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
     dev: false
@@ -9426,6 +9435,10 @@ packages:
     resolution: {integrity: sha512-pBxcB3LFc8QVgdggvZWyeys+hnrNWg4OcZIU/1X59k5jQdLBlCsYGRQaz234SqoRLTCgMH00fY0xRJH+F9METQ==}
     engines: {node: '>=8'}
     dev: true
+
+  /jwt-decode/3.1.2:
+    resolution: {integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==}
+    dev: false
 
   /kind-of/3.2.2:
     resolution: {integrity: sha512-NOW9QQXMoZGg/oqnVNoNTTIFEIid1627WCffUBJEdMxYApq7mNE7CpzucIPc+ZQg25Phej7IJSmX3hO+oblOtQ==}
