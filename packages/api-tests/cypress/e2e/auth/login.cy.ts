@@ -1,6 +1,8 @@
 /// <reference types="cypress" />
 
-describe('Login Flow', () => {
+import { LoginRequest } from '../shared';
+
+describe('POST /jwt', () => {
   it('should return a 400 if username or password are not provided', () => {
     const requriedKeys = ['username', 'password'];
 
@@ -53,8 +55,3 @@ describe('Login Flow', () => {
     });
   });
 });
-
-const LoginRequest = {
-  method: 'POST',
-  url: 'https://backend.staging.eb-app.earnbetter.com/api/v1/jwt/',
-};

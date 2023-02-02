@@ -1,8 +1,38 @@
 import Head from 'next/head';
 
 import LoginForm from '@components/LoginForm/LoginForm';
+import { useCallback, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import jwt from 'jwt-decode';
+import isPast from 'date-fns/isPast';
 
 const LoginPage = () => {
+  // Hook(s)
+  const router = useRouter();
+  const isAuthed = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      const accessToken = localStorage.getItem('access_token');
+      if (accessToken) {
+        const user: {
+          exp: number;
+          iat: number;
+          jti: string;
+          token_type: string;
+          user_id: number;
+        } = jwt(accessToken);
+        const isExpired = isPast(new Date(user.exp * 1000));
+        return !isExpired;
+      }
+    }
+    return false;
+  }, []);
+
+  useEffect(() => {
+    if (isAuthed()) {
+      router.replace('/');
+    }
+  }, [isAuthed, router]);
+
   return (
     <>
       <Head>

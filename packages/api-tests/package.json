@@ -8,12 +8,11 @@
     "api:test": "cypress install && cypress run --browser chrome"
   },
   "dependencies": {
-    "cypress": "^12.4.0",
+    "cypress": "^12.5.0",
     "web": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "@playwright/test": "^1.30.0",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*"

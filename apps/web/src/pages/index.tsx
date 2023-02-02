@@ -1,11 +1,49 @@
-import { Button } from 'ui';
+import { AppLayout } from 'ui';
+import {
+  DocumentIcon,
+  UserCircleIcon,
+  UsersIcon,
+} from '@heroicons/react/24/outline';
+import { useQuery } from '@tanstack/react-query';
+import { meQuery } from '@api';
+import { DocumentList } from '@components';
 
-export default function Web() {
+export const menuItems = [
+  {
+    label: 'Documents',
+    icon: <DocumentIcon />,
+    href: '/',
+    disabled: false,
+  },
+  {
+    label: 'Candidates',
+    icon: <UsersIcon />,
+    href: '/candidates',
+    disabled: true,
+  },
+  {
+    label: 'Profile',
+    icon: <UserCircleIcon />,
+    href: '/profile',
+    disabled: true,
+  },
+];
+
+const HomePage = () => {
+  const { data: userData, isLoading: userIsLoading } = useQuery({
+    queryFn: async () => meQuery(),
+    queryKey: ['me'],
+  });
+
   return (
-    <div className="border-4 border-red-500 h-screen">
-      <Button>Boop</Button>
-
-      <div className="h-8 w-8 border-2 border-green-400 rounded-sm"></div>
-    </div>
+    <AppLayout
+      menuItems={menuItems}
+      userData={userData}
+      userIsLoading={userIsLoading}
+    >
+      <DocumentList />
+    </AppLayout>
   );
-}
+};
+
+export default HomePage;

@@ -96,7 +96,7 @@ export const Button: React.FC<Props> = ({
       disabled={disabled || isLoading}
       {...rest}
     >
-      {isLoading && <Spinner />}
+      {isLoading && <Spinner size="small" />}
       {iconLeft && <span className="mr-2 h-5 w-5">{iconLeft}</span>}
       {!isLoading && <span>{children}</span>}
       {iconRight && <span className="ml-2 h-5 w-5">{iconRight}</span>}
