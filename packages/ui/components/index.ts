@@ -7,3 +7,4 @@ export * from './DropdownMenuItem';
 export * from './Header';
 export * from './MobileMenu';
 export * from './Spinner';
+export * from './Tabs';
