@@ -1,19 +1,13 @@
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import useBreakpoint from '@hooks/useBreakpoints';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Button, DropdownMenu, DropdownMenuItem } from 'ui';
 
 export const CreateNew = () => {
   const router = useRouter();
-  const breakpoint = useBreakpoint();
   const menuButton = (
     <Button data-test-id="create-new-button" iconRight={<ChevronDownIcon />}>
-      {breakpoint === 'xs' || breakpoint === 'sm'
-        ? ''
-        : breakpoint === 'md'
-        ? 'Create'
-        : 'Create New'}
+      Create
     </Button>
   );
   const menuItems = [

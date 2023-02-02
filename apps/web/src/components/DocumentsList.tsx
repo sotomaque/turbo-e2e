@@ -1,5 +1,6 @@
 import { Tabs } from 'ui';
 import { CreateNew } from './CreateNew';
+import { ResumeList } from './ResumeList';
 
 export const DocumentList = () => {
   return (
@@ -12,7 +13,7 @@ export const DocumentList = () => {
         tabs={[
           {
             label: 'Resumes',
-            content: <h1>Hi</h1>,
+            content: <ResumeList />,
           },
           {
             label: 'Cover letters',
