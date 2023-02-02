@@ -8,7 +8,7 @@
     "api:test": "cypress install && cypress run --browser chrome"
   },
   "dependencies": {
-    "cypress": "^12.4.0",
+    "cypress": "^12.5.0",
     "web": "workspace:*"
   },
   "devDependencies": {
