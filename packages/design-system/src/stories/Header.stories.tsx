@@ -11,7 +11,7 @@ export const menuItems = [
   {
     label: 'Documents',
     icon: <DocumentIcon />,
-    href: '/documents',
+    href: '/',
     disabled: false,
   },
   {
